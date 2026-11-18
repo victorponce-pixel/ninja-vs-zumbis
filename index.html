@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ninja vs Zumbis - Jogo de Plataforma 2D</title>
+  <style>
+    body { background-color: #0b0f1a; color: #e6edf3; font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 10px; }
+    #jogo { position: relative; width: 960px; height: 540px; margin: 0 auto; overflow: hidden; background-color: #1e293b; background-image: url(fundo.png); border: 3px solid #22d3ee; }
+    .nuvem { position: absolute; left: 0px; z-index: 0; background-repeat: no-repeat; }
+    .plataforma { position: absolute; background-repeat: repeat-x; }
+    .espinho { position: absolute; height: 16px; background-image: url(espinho.png); background-repeat: repeat-x; }
+    .moeda { position: absolute; width: 20px; height: 20px; background-image: url(moeda.png); }
+    .inimigo { position: absolute; width: 36px; height: 46px; background-repeat: no-repeat; }
+    .bandeira { position: absolute; width: 80px; height: 120px; background-image: url(bandeira_trancada.png); background-repeat: no-repeat; }
+    #jogador { position: absolute; width: 48px; height: 50px; background-image: url(ninja_parado.png); background-repeat: no-repeat; }
+    #placar { z-index: 5; position: absolute; left: 15px; top: 10px; font-size: 18px; font-weight: bold; color: #facc15; text-shadow: 2px 2px 3px #000000; }
+    #aviso { z-index: 5; position: absolute; left: 0px; top: 45px; width: 960px; font-size: 20px; font-weight: bold; color: #ffffff; text-shadow: 2px 2px 3px #000000; }
+    #tela { z-index: 10; position: absolute; left: 0px; top: 0px; width: 960px; height: 540px; background-color: rgba(2, 6, 23, 0.8); }
+    #titulo { font-size: 60px; margin-top: 150px; margin-bottom: 10px; }
+    #mensagem { font-size: 24px; }
+    #botao { font-size: 22px; padding: 10px 30px; margin-top: 20px; cursor: pointer; }
+  </style>
+</head>
+<body onKeyDown="teclaApertada(event)" onKeyUp="teclaSolta(event)" onLoad="iniciarPagina()">
+  <h2>Ninja vs Zumbis</h2>
+
+  <div id="jogo">
+    <div id="placar"></div>
+    <div id="aviso"></div>
+    <script src="game.js"></script>
+    <script>desenhaCenario();</script>
+
+    <div id="tela">
+      <div id="titulo"></div>
+      <div id="mensagem"></div>
+      <button id="botao" onClick="acaoBotao()">JOGAR (ou ENTER)</button>
+    </div>
+  </div>
+
+  <p>Setas ou A/D: mover &middot; Espa&ccedil;o, W ou seta para cima: pular &middot; Pule em cima dos zumbis para elimin&aacute;-los &middot; Plataformas roxas se movem &middot; Espinhos = Game Over &middot; Cuidado com o tempo</p>
+</body>
+</html>
